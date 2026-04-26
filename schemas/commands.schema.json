@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CommandRegistry",
+  "type": "object",
+  "required": ["version", "commands"],
+  "properties": {
+    "version": { "type": "integer" },
+    "commands": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["command", "purpose", "risk"],
+        "properties": {
+          "command": { "type": "string" },
+          "purpose": { "type": "string" },
+          "risk": { "enum": [0, 1, 2, 3] }
+        }
+      }
+    }
+  }
+}

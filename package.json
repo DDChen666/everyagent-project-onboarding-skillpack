@@ -1,0 +1,26 @@
+{
+  "name": "ai-project-control-plane",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Portable Skill Pack for safely aligning Claude Code, Codex, MCP policy, memory, and agent discipline across projects.",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "ai-control-plane-install": "bin/install-into-project.mjs"
+  },
+  "scripts": {
+    "ai:doctor": "node .ai/sync/doctor.mjs",
+    "ai:sync": "node .ai/sync/generate-adapters.mjs",
+    "ai:sync:force": "node .ai/sync/generate-adapters.mjs --force",
+    "ai:validate": "node .ai/sync/validate.mjs --mode=auto",
+    "ai:validate:sidecar": "node .ai/sync/validate.mjs --mode=sidecar",
+    "ai:validate:full": "node .ai/sync/validate.mjs --mode=full",
+    "ai:scan": "node .ai/sync/scan-project.mjs",
+    "ai:scan:audit": "node .ai/sync/scan-project.mjs --audit-only",
+    "ai:bridge-audit": "node .ai/sync/scan-project.mjs --claude-bridge",
+    "ai:review-memory": "node .ai/sync/review-memory.mjs",
+    "ai:all": "npm run ai:doctor && npm run ai:sync && npm run ai:validate:full"
+  }
+}

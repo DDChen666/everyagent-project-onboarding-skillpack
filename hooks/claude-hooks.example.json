@@ -1,0 +1,8 @@
+{
+  "description": "Example Claude Code hook policy. Adapt to the current Claude Code hook format before use.",
+  "principles": [
+    "Block direct edits to generated adapters.",
+    "Require checkpoint before Risk 2+ actions.",
+    "Run node .ai/sync/validate.mjs after adapter generation."
+  ]
+}

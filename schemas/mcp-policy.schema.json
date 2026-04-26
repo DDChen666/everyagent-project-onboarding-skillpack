@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "McpPolicy",
+  "type": "object",
+  "required": ["version", "policy_name", "registry"],
+  "properties": {
+    "version": { "type": "integer" },
+    "policy_name": { "type": "string" },
+    "principle": { "type": "string" },
+    "registry": { "type": "object" },
+    "client_adapter_policy": { "type": "object" },
+    "sync_invariant": { "type": "string" }
+  }
+}

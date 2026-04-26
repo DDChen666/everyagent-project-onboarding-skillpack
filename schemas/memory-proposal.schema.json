@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MemoryProposal",
+  "type": "object",
+  "required": ["title", "observation", "evidence", "confidence", "risk", "suggested_destination"],
+  "properties": {
+    "title": { "type": "string" },
+    "observation": { "type": "string" },
+    "evidence": { "type": "array", "items": { "type": "string" } },
+    "confidence": { "enum": ["low", "medium", "high"] },
+    "risk": { "enum": [0, 1, 2, 3] },
+    "suggested_destination": { "type": "string" },
+    "validation": { "type": "string" },
+    "conflicts_or_uncertainty": { "type": "string" }
+  }
+}
