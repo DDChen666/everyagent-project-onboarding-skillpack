@@ -1,0 +1,55 @@
+version: 1
+project:
+  name: everyagent-project-onboarding-skillpack
+  type:
+    - agent-skill-pack
+    - repository-control-plane
+  status: v0.1.0-foundation
+  purpose: >-
+    Provide a safety-first, cross-agent onboarding and canonicalization workflow
+    for making arbitrary projects reliable for Claude Code, Codex, and other
+    capable AI agents.
+
+source_of_truth:
+  canonical_memory: .ai/canon
+  generated_adapters:
+    - AGENTS.md
+    - CLAUDE.md
+  proposal_inbox: .ai/proposed-memory/inbox.md
+
+supported_project_classes:
+  - software
+  - knowledge-base
+  - writing-system
+  - creative-generation-system
+  - ai-workflow-system
+  - data-project
+  - mixed-or-unknown
+
+core_components:
+  skills: skills/
+  templates: templates/
+  scripts: scripts/
+  schemas: schemas/
+  docs: docs/
+
+agent_targets:
+  codex:
+    primary_adapter: AGENTS.md
+    optional_config: templates/codex/config.toml.template
+  claude_code:
+    primary_adapter: CLAUDE.md
+    shared_import: AGENTS.md
+    optional_rules: templates/claude/rules/
+
+risk_policy:
+  canonical_file: .ai/canon/risk-policy.yaml
+  default_mode: conservative
+  checkpoint_required_for:
+    - risk_2
+    - risk_3
+
+validation:
+  command: python scripts/ai_agentify.py validate
+  doctor_command: python scripts/ai_agentify.py doctor
+  sync_command: python scripts/ai_agentify.py sync
